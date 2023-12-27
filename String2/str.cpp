@@ -12,5 +12,22 @@ int main(){
     while(ss>>temp){
         v.push_back(temp);
     }
-    
+
+    sort(v.begin() , v.end());
+    int maxCount = 1;
+    int count = 1;
+
+    for(int i = 1; i<v.size(); i++){
+        if(v[i]==v[i-1]) count++;
+        else count = 1;
+        maxCount = max(count,maxCount);
+    }
+    count = 1;
+    for(int i = 1; i<v.size(); i++){
+        if(v[i]==v[i-1]) count++;
+        else count = 1;
+        if(maxCount==count) {
+            cout<<v[i]<<" "<<maxCount<<endl;
+        }
+    }
 }
